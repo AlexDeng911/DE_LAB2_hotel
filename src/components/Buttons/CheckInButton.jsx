@@ -7,7 +7,10 @@ import { UserOutlined } from '@ant-design/icons';
 import { checkInRoom } from '../../store/actions/roomsActions';
 import { ROOM_OCCUPANCY_LIST, ROOMS_TYPES } from '../../constants/rooms';
 import { showNotification } from '../../store/actions/notificationsActions';
-import { NOTIFICATION_MESSAGE, NOTIFICATION_STATUS } from '../../constants/notifications';
+import {
+  NOTIFICATION_MESSAGE,
+  NOTIFICATION_STATUS,
+} from '../../constants/notifications';
 
 const propTypes = {
   room: PropTypes.shape({
@@ -20,8 +23,14 @@ const propTypes = {
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     gallery: PropTypes.arrayOf(PropTypes.string).isRequired,
     description: PropTypes.string.isRequired,
-    checkInDate: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([null])]),
-    checkOutDate: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([null])]),
+    checkInDate: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.oneOf([null]),
+    ]),
+    checkOutDate: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.oneOf([null]),
+    ]),
     guest: PropTypes.string,
   }).isRequired,
 };
@@ -49,7 +58,12 @@ const CheckInButton = ({ room }) => {
       setIsLoading(false);
     } catch (err) {
       setIsLoading(false);
-      dispatch(showNotification(NOTIFICATION_STATUS.ERROR, NOTIFICATION_MESSAGE.FORM_VALIDATION_ERROR));
+      dispatch(
+        showNotification(
+          NOTIFICATION_STATUS.ERROR,
+          NOTIFICATION_MESSAGE.FORM_VALIDATION_ERROR,
+        ),
+      );
     }
   };
   const handleModalCancel = () => {

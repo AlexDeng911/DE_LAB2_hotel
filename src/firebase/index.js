@@ -2,11 +2,10 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import firebaseConfig from './config';
 
-// To initialize your database, create a config.js file with your firebase configurations
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 } else {
-  firebase.app(); // if already initialized, use that one
+  firebase.app();
 }
 
 const databaseRef = firebase.database().ref();

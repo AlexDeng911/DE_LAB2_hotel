@@ -2,7 +2,10 @@ import React, { useEffect, useMemo } from 'react';
 import { Button, Card, Checkbox, Col, Form, Input, Layout, Row } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getAccountsState, getIsAuthorized } from '../../store/selectors/usersSelectors';
+import {
+  getAccountsState,
+  getIsAuthorized,
+} from '../../store/selectors/usersSelectors';
 import { logIn } from '../../store/actions/usersActions';
 import './AuthPage.scss';
 
@@ -70,7 +73,12 @@ const AuthPage = () => {
                 <Checkbox>Remember me</Checkbox>
               </Form.Item>
               <Form.Item wrapperCol={{ offset: 9, span: 6 }}>
-                <Button type="primary" htmlType="submit" disabled={isEmptyAccounts} className="auth-btn">
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  disabled={isEmptyAccounts}
+                  className="auth-btn"
+                >
                   Log in
                 </Button>
               </Form.Item>

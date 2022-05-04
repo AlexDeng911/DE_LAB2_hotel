@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import { getIsAuthorized } from '../store/selectors/usersSelectors';
 
 const propTypes = {
-  component: PropTypes.oneOfType([PropTypes.shape(), PropTypes.func]).isRequired,
+  component: PropTypes.oneOfType([PropTypes.shape(), PropTypes.func])
+    .isRequired,
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => {

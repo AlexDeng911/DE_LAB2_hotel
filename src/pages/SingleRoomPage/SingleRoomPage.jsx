@@ -1,5 +1,13 @@
 import React from 'react';
-import { Button, Carousel, Col, Descriptions, List, Row, Typography } from 'antd';
+import {
+  Button,
+  Carousel,
+  Col,
+  Descriptions,
+  List,
+  Row,
+  Typography,
+} from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { CheckOutlined, HomeOutlined } from '@ant-design/icons';
@@ -21,20 +29,32 @@ const SingleRoomPage = () => {
           <Button type="link">
             <Link to="/">
               <HomeOutlined />
-              &nbsp;
-              Back Home
+&nbsp; Back Home
             </Link>
           </Button>
         </Col>
         <Col span={12}>
           <Carousel>
-            {room.gallery.map((imageUrl) => <img key={imageUrl} src={imageUrl} alt={room.type} className="slider-image" />)}
+            {room.gallery.map((imageUrl) => (
+              <img
+                key={imageUrl}
+                src={imageUrl}
+                alt={room.type}
+                className="slider-image"
+              />
+            ))}
           </Carousel>
         </Col>
         <Col span={12}>
           <Row justify="space-between">
             <Col>
-              <Typography.Title level={2} underline>{`Room ${room.number}`}</Typography.Title>
+              <Typography.Title
+                level={2}
+                underline
+              >
+                {`Room ${room.number}`}
+
+              </Typography.Title>
             </Col>
             <Col>
               <CheckInButton room={room} />
@@ -47,10 +67,16 @@ const SingleRoomPage = () => {
                 labelStyle={{ fontWeight: 'bold', alignSelf: 'center' }}
                 column={1}
               >
-                <Descriptions.Item label="Type">{ROOM_TYPE_LABEL[room.type]}</Descriptions.Item>
-                <Descriptions.Item label="Occupancy">{room.occupancy}</Descriptions.Item>
+                <Descriptions.Item label="Type">
+                  {ROOM_TYPE_LABEL[room.type]}
+                </Descriptions.Item>
+                <Descriptions.Item label="Occupancy">
+                  {room.occupancy}
+                </Descriptions.Item>
                 <Descriptions.Item label="Price">{`${room.price}$`}</Descriptions.Item>
-                <Descriptions.Item label="Quest">{room.guest}</Descriptions.Item>
+                <Descriptions.Item label="Quest">
+                  {room.guest}
+                </Descriptions.Item>
               </Descriptions>
             </Col>
             <Col span={12}>
@@ -77,7 +103,9 @@ const SingleRoomPage = () => {
         </Col>
         <Col span={24}>
           <Descriptions labelStyle={{ fontWeight: 'bold' }} column={2}>
-            <Descriptions.Item label="Description">{room.description}</Descriptions.Item>
+            <Descriptions.Item label="Description">
+              {room.description}
+            </Descriptions.Item>
           </Descriptions>
         </Col>
       </Row>
